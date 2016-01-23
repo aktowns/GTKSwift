@@ -7,6 +7,16 @@ let package = Package(
   ],
   targets: [
     Target(
+      name: "GTKSwift",
+      dependencies: [
+          .Target(name: "Atk"),
+          .Target(name: "Gdk"),
+          .Target(name: "Gio"),
+          .Target(name: "GObject"),
+          .Target(name: "Gtk")
+      ]
+    ),
+    Target(
       name: "GTKSwiftDemo",
       dependencies: [.Target(name: "GTKSwift")])
   ])

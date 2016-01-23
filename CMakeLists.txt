@@ -13,7 +13,20 @@ set(SOURCE_FILES
     Sources/GTKSwiftDemo/main.swift
     Package.swift)
 
+FILE(GLOB AtkBindingSources ./Sources/Atk/*.swift)
+FILE(GLOB GdkBindingSources ./Sources/Gdk/*.swift)
+FILE(GLOB GioBindingSources ./Sources/Gio/*.swift)
+FILE(GLOB GObjectBindingSources ./Sources/GObject/*.swift)
+FILE(GLOB GtkBindingSources ./Sources/Gtk/*.swift)
+
 add_custom_target(
         COMMAND /usr/bin/swift build
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-        SOURCES ${SOURCE_FILES})
+        SOURCES
+            ${SOURCE_FILES}
+            ${AtkBindingSources}
+            ${GdkBindingSources}
+            ${GioBindingSources}
+            ${GObjectBindingSources}
+            ${GtkBindingSources})
+
